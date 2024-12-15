@@ -1,0 +1,174 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kejutan</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(120deg, #1c92d2, #f8cdda);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Tambahkan ini agar elemen diatur secara vertikal */
+            min-height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        img {
+            max-width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            display: none; /* Awalnya gambar tidak ditampilkan */
+            animation: popIn 0.8s ease-in-out forwards;
+            margin: 20px 0; /* Tambahkan jarak vertikal */
+        }
+        p {
+            font-size: 1.5em;
+            margin-top: 20px;
+            color: #fff;
+        }
+        .emoji {
+            font-size: 2em;
+            cursor: pointer;
+            user-select: none;
+            transition: transform 0.3s ease, color 0.3s ease;
+            display: inline-block;
+            animation: shake 1s infinite ease-in-out;
+        }
+        .emoji:hover {
+            transform: scale(1.2);
+            color: #f8cdda;
+        }
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #1c92d2;
+            background: #fff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        .button:hover {
+            background: #f8cdda;
+            color: #fff;
+        }
+        #message {
+            display: none;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes popIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes shake {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            25% {
+                transform: translateX(-5px);
+            }
+            50% {
+                transform: translateX(5px);
+            }
+            75% {
+                transform: translateX(-5px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            img {
+                max-width: 200px;
+            }
+            p {
+                font-size: 1em;
+            }
+            .button {
+                font-size: 0.9em;
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <audio id="background-music1" loop>
+        <source src="i love you.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="background-music2" loop>
+        <source src="keepyousafe.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="meow-sound">
+        <source src="meow.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="container">
+        <p>Aku saranin pakai headset ya 🎧</p>
+        <p>Klik Kucing Ini 👉🏻 <span class="emoji" id="cat-emoji">🐱</span></p>
+        <img src="meoww.jpg" alt="Maafff Yahhhh" id="cat-image">
+        <p id="message">i luv u ❤</p>
+        <a href="hikariiiiii.html" class="button">Kembali</a>
+    </div>
+
+    <script>
+        const music1 = document.getElementById('background-music1');
+        const music2 = document.getElementById('background-music2');
+        const meowSound = document.getElementById('meow-sound');
+        const catEmoji = document.getElementById('cat-emoji');
+        const catImage = document.getElementById('cat-image');
+        const message = document.getElementById('message');
+
+        // Atur volume
+        music1.volume = 0.6;
+        music2.volume = 0.1;
+
+        // Memulai kedua musik setelah klik pertama
+        document.addEventListener('click', function () {
+            music1.play();
+            music2.play();
+        });
+
+        // Menampilkan gambar dan pesan saat emoji kucing diklik
+        catEmoji.addEventListener('click', function () {
+            meowSound.play(); // Memutar suara meong
+            catImage.style.display = 'block'; // Tampilkan gambar
+            message.style.display = 'block'; // Tampilkan pesan
+        });
+    </script>
+</body>
+</html>
